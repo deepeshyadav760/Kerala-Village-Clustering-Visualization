@@ -1,4 +1,4 @@
-# 🧠 Unsupervised Learning Clustering Web App
+# 🧠 Kerala Village Clustering Visualization
 
 A Streamlit-based web application that enables users to perform clustering on village-related datasets using unsupervised learning algorithms like **KMeans**, **DBSCAN**, and **Hierarchical Clustering**. The app visualizes clustering results on two selected features and evaluates performance using the **Silhouette Score**.
 
