@@ -4,7 +4,7 @@ A Streamlit-based web application that enables users to perform clustering on vi
 
 ---
 
-## 📁 Project Structure
+## 📁 Application file Structure
 
 ```
 UNSUPERVISED_ANALYSIS/
@@ -37,7 +37,7 @@ UNSUPERVISED_ANALYSIS/
 streamlit run streamlit_app.py
 ```
 
-3. Open your browser and visit: 
+3. Open your browser and visit: https://kerala-village-clustering-visualization.streamlit.app/
 4. Choose two features and a clustering algorithm, then submit the form to see the clustering plot and silhouette score.
 
 ---
