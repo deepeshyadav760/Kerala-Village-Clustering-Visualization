@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Village Clustering Visualization</title>
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/20/da/3c/20da3c33e34f056ed8c831ba074f1dc3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Kerala Village Clustering Visualization</h1>
+    <form action="/plot" method="post">
+        <label for="x-axis">X-Axis:</label>
+        <select name="x-axis" id="x-axis">
+            {% for feature in feature_names %}
+            <option value="{{ feature }}">{{ feature }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="y-axis">Y-Axis:</label>
+        <select name="y-axis" id="y-axis">
+            {% for feature in feature_names %}
+            <option value="{{ feature }}">{{ feature }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="clustering_algorithm">Clustering Algorithm:</label>
+        <select name="clustering_algorithm" id="clustering_algorithm">
+            <option value="KMeans">K-Means</option>
+            <option value="DBSCAN">DBSCAN</option>
+            <option value="Hierarchical">Hierarchical</option>
+        </select>
+        <br>
+        <div id="additional_params">
+            <div id="kmeans_params" style="display: none;">
+                <label for="k_value">K Value:</label>
+                <select name="k_value" id="k_value">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                   
+                </select>
+                <br>
+                <label for="distance_metric">Distance Metric:</label>
+                <select name="distance_metric" id="distance_metric">
+                    <option value="euclidean">Euclidean</option>
+                    <option value="manhattan">Manhattan</option>
+                    <option value="cosine">Cosine</option>
+                   
+                </select>
+                <br>
+                <label for="init_method">Initialization Method:</label>
+                <select name="init_method" id="init_method">
+                    <option value="k-means++">K-Means++</option>
+                    <option value="random">Random</option>
+                   
+                </select>
+            </div>
+            <div id="dbscan_params" style="display: none;">
+                <label for="epsilon">Epsilon:</label>
+                <select name="epsilon" id="epsilon">
+                    <option value="0.3">0.3</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.5">0.5</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.7">0.7</option>
+                    <option value="0.8">0.8</option>
+                </select>
+            </div>
+            <div id="hierarchical_params" style="display: none;">
+                <label for="distance_metric_h">Distance Metric:</label>
+                <select name="distance_metric_h" id="distance_metric_h">
+                    <option value="euclidean">Euclidean</option>
+                    <option value="manhattan">Manhattan</option>
+                    <option value="cosine">Cosine</option>
+                   
+                </select>
+                <br>
+                <label for="linkage_criteria">Linkage Criteria:</label>
+                <select name="linkage_criteria" id="linkage_criteria">
+                    <option value="single">Single Linkage</option>
+                    <option value="complete">Complete Linkage</option>
+                    <option value="average">Average Linkage</option>
+                   
+                </select>
+            </div>
+        </div>
+        <button type="submit">Cluster</button>
+    </form>
+    <script>
+        document.getElementById('clustering_algorithm').addEventListener('change', function() {
+            var value = this.value;
+            if (value === 'KMeans') {
+                document.getElementById('kmeans_params').style.display = 'block';
+                document.getElementById('dbscan_params').style.display = 'none';
+                document.getElementById('hierarchical_params').style.display = 'none';
+            } else if (value === 'DBSCAN') {
+                document.getElementById('kmeans_params').style.display = 'none';
+                document.getElementById('dbscan_params').style.display = 'block';
+                document.getElementById('hierarchical_params').style.display = 'none';
+            } else if (value === 'Hierarchical') {
+                document.getElementById('kmeans_params').style.display = 'none';
+                document.getElementById('dbscan_params').style.display = 'none';
+                document.getElementById('hierarchical_params').style.display = 'block';
+            } else {
+                document.getElementById('kmeans_params').style.display = 'none';
+                document.getElementById('dbscan_params').style.display = 'none';
+                document.getElementById('hierarchical_params').style.display = 'none';
+            }
+        });
+    </script>
+    </center>
+</body>
+</html>
