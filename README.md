@@ -9,7 +9,7 @@ A Streamlit-based web application that enables users to perform clustering on vi
 ```
 UNSUPERVISED_ANALYSIS/
 │
-├── streamlit_app.py                      # Main Flask application
+├── streamlit_app.py                      # Main streamlit application
 ├── final_colored_records.csv   # Dataset for clustering
 ├── templates/
 │   ├── index.html              # Frontend form for feature/algorithm selection
@@ -74,7 +74,7 @@ Plot of Feature X vs Feature Y with KMeans Clustering (Silhouette Score: 0.61)
 
 ## 🧠 Skills Demonstrated
 
-- Web development with Flask
+- Web development with streamlit
 - Unsupervised learning (KMeans, DBSCAN, Hierarchical Clustering)
 - Data visualization with Matplotlib
 - Evaluation metrics (Silhouette Score)
